@@ -1,8 +1,8 @@
 css
 
-         .navbar {
-            background-color: red !important;
-            box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2) !important;
+         nav.navbar {
+    background-color: red !important;
+    box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2) !important;
         }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -73,5 +73,6 @@ css
         }
 
     
+
 
 
