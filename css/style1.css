@@ -1,4 +1,6 @@
- .navbar {
+css
+
+.navbar {
             background-color: #ff4655;
             box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
         }
@@ -69,4 +71,5 @@
             height: 40px;
             margin-right: 10px;
         }
+
     
