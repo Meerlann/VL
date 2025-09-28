@@ -3,7 +3,6 @@ css
     .navbar {
             background-color: red;
             box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
-     height:62px
         }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -134,6 +133,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
