@@ -13,6 +13,7 @@ css
         .nav-link.active {
             background-color: #0f1923;
             border-radius: 4px;
+        }
       
         .body {
             font-family: Arial, sans-serif;
@@ -127,6 +128,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
