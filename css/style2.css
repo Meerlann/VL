@@ -3,6 +3,10 @@ css
     .navbar {
             background-color: red;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center; /* выравнивание по горизонтали */
+    align-items: center;     /* выравнивание по вертикали */
+    height: 100%; 
         }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -126,6 +130,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
