@@ -14,7 +14,7 @@ css
             background-color: #0f1923;
             border-radius: 4px;
       
-        body {
+        .body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -127,6 +127,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
