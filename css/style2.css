@@ -1,18 +1,31 @@
 css
  
-         nav.navbar {
+      .navbar {
     background-color: red !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
-          height:72px;
-          
-        }
-        .navbar-brand, .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-        }
-        .nav-link.active {
-            background-color: #0f1923;
-            border-radius: 4px;
+    padding: 12px 0;
+    min-height: 72px;
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link {
+    padding: 8px 16px !important;
+    margin: 0 5px;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #0f1923 !important;
+    border-radius: 4px;
+}
+
+
+/* Ограничение ширины контента */
+.navbar .container {
+    max-width: 1200px;
 }
 
         body {
@@ -128,6 +141,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
