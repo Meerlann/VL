@@ -7,7 +7,7 @@ css
        .nav.navbar {
      padding-left: 70px;
     padding-right: 70px;
-    height:72px
+    height:72px;
         }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -17,13 +17,6 @@ css
             background-color: #0f1923;
             border-radius: 4px;
         }
-        .hero-section {
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-}
 
         body {
             font-family: Arial, sans-serif;
@@ -138,6 +131,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
