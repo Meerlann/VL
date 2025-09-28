@@ -8,7 +8,6 @@ css
 .navbar-nav {
     display: flex;
     justify-content: center;
-    width: 100%;
 }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -133,6 +132,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
