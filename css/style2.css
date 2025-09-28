@@ -7,7 +7,7 @@ css
         .navbar-brand, .nav-link {
             color: #fff !important;
             font-weight: 500;
-         font-family: Arial
+         font-family: Arial,sans-serif;
         }
         .nav-link.active {
             background-color: #0f1923;
@@ -126,6 +126,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
