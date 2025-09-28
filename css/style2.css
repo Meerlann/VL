@@ -1,0 +1,123 @@
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        /* Навбар */
+          nav.navbar {
+    background-color: red !important;
+    box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2) !important;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+        }
+        .nav-link.active {
+            background-color: #0f1923;
+            border-radius: 4px
+        }
+        
+        /* Навигация по странице */
+        .page-nav {
+            background-color: white;
+            padding: 15px;
+            margin-top: 60px;
+            text-align: center;
+            border-bottom: 2px solid #ff4655;
+        }
+        
+        .page-nav a {
+            color: #ff4655;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+        
+        .page-nav a:hover {
+            background-color: #ff4655;
+            color: white;
+            border-radius: 3px;
+        }
+        
+        /* Основной контент */
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Разделы */
+        .section {
+            margin: 40px 0;
+            padding: 20px;
+            border-left: 4px solid #ff4655;
+            background-color: #f9f9f9;
+        }
+        
+        h2 {
+            color: #ff4655;
+            border-bottom: 2px solid #ff4655;
+            padding-bottom: 10px;
+        }
+        
+        /* Списки */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        /* Таблица */
+        .game-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=200&h=100&fit=crop');
+            background-size: cover;
+        }
+        
+        .game-table th, .game-table td {
+            border: 1px solid #ff4655;
+            padding: 10px;
+            text-align: left;
+            background-color: rgba(255,255,255,0.8);
+        }
+        
+        .game-table th {
+            background-color: #ff4655;
+            color: white;
+        }
+        
+        /* Картинки */
+        .small-image {
+            width: 100px;
+            height: auto;
+            border: 2px solid #ff4655;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .agent-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        /* Ссылки */
+        a {
+            color: #ff4655;
+        }
+        
+        a:hover {
+            color: #d93a4a;
+        }
+ 
