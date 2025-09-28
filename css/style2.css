@@ -6,6 +6,13 @@ css
     height:62px;
      text-align: center;
         }
+.navbar-collapse {
+    justify-content: center !important;
+}
+
+.navbar-nav {
+    margin: 0 !important;
+}
         .navbar-brand, .nav-link {
             color: #fff !important;
             font-weight: 500;
@@ -129,6 +136,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
