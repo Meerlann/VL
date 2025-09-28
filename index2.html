@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка вложенности прямоугольников</title>
+</head>
+<body>
+    <h1>Проверка вложенности прямоугольников</h1>
+    
+    <div>
+        <h2>Условие задачи:</h2>
+        <p>Даны вещественные положительные числа a, b, c, d.</p>
+        <p>Выясните, может ли прямоугольник со сторонами a, b уместиться внутри прямоугольника со сторонами c, d так, чтобы каждая сторона внутреннего прямоугольника была параллельна или перпендикулярна стороне внешнего прямоугольника.</p>
+    </div>
+    
+    <div>
+        <h2>Введите значения:</h2>
+        <form id="rectangleForm">
+            <p>
+                <label>Сторона a (внутренний прямоугольник): 
+                    <input type="number" id="sideA" step="0.01" min="0.01" required>
+                </label>
+            </p>
+            <p>
+                <label>Сторона b (внутренний прямоугольник): 
+                    <input type="number" id="sideB" step="0.01" min="0.01" required>
+                </label>
+            </p>
+            <p>
+                <label>Сторона c (внешний прямоугольник): 
+                    <input type="number" id="sideC" step="0.01" min="0.01" required>
+                </label>
+            </p>
+            <p>
+                <label>Сторона d (внешний прямоугольник): 
+                    <input type="number" id="sideD" step="0.01" min="0.01" required>
+                </label>
+            </p>
+            <p>
+                <button type="button" onclick="checkRectangles()">Проверить</button>
+                <button type="button" onclick="clearForm()">Очистить</button>
+            </p>
+        </form>
+    </div>
+    
+    <div id="result"></div>
+    
+    <div>
+        <h2>Объяснение решения:</h2>
+        <p>Прямоугольник со сторонами a и b может поместиться внутри прямоугольника со сторонами c и d в двух случаях:</p>
+        <ol>
+            <li>Если a ≤ c и b ≤ d (прямоугольник помещается без поворота)</li>
+            <li>Если a ≤ d и b ≤ c (прямоугольник помещается с поворотом на 90°)</li>
+        </ol>
+        <p>Таким образом, достаточно проверить выполнение условия: (a ≤ c и b ≤ d) ИЛИ (a ≤ d и b ≤ c)</p>
+    </div>
+
+    <script>
+        function checkRectangles() {
+            // Получаем значения из формы
+            const a = parseFloat(document.getElementById('sideA').value);
+            const b = parseFloat(document.getElementById('sideB').value);
+            const c = parseFloat(document.getElementById('sideC').value);
+            const d = parseFloat(document.getElementById('sideD').value);
+            
+            // Проверяем, что все значения положительные
+            if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
+                document.getElementById('result').innerHTML = 
+                    "<p style='color:red'>Ошибка: все стороны должны быть положительными числами!</p>";
+                return;
+            }
+            
+            // Проверяем условие вложенности
+            const fitsWithoutRotation = (a <= c) && (b <= d);
+            const fitsWithRotation = (a <= d) && (b <= c);
+            const fits = fitsWithoutRotation || fitsWithRotation;
+            
+            // Формируем результат
+            let resultHTML = "<h2>Результат:</h2>";
+            
+            if (fits) {
+                resultHTML += "<p style='color:green'>Прямоугольник со сторонами " + a + " и " + b + 
+                             " МОЖЕТ поместиться внутри прямоугольника со сторонами " + c + " и " + d + ".</p>";
+                
+                if (fitsWithoutRotation) {
+                    resultHTML += "<p>Прямоугольник помещается без поворота (a ≤ c и b ≤ d).</p>";
+                } else {
+                    resultHTML += "<p>Прямоугольник помещается с поворотом на 90° (a ≤ d и b ≤ c).</p>";
+                }
+            } else {
+                resultHTML += "<p style='color:red'>Прямоугольник со сторонами " + a + " и " + b + 
+                             " НЕ МОЖЕТ поместиться внутри прямоугольника со сторонами " + c + " и " + d + ".</p>";
+            }
+            
+            // Добавляем подробное объяснение
+            resultHTML += "<h3>Подробное объяснение:</h3>";
+            resultHTML += "<p>Проверяемые условия:</p>";
+            resultHTML += "<ul>";
+            resultHTML += "<li>Без поворота: " + a + " ≤ " + c + " и " + b + " ≤ " + d + " → " + 
+                         (a <= c ? "да" : "нет") + " и " + (b <= d ? "да" : "нет") + " → " + 
+                         (fitsWithoutRotation ? "выполняется" : "не выполняется") + "</li>";
+            resultHTML += "<li>С поворотом: " + a + " ≤ " + d + " и " + b + " ≤ " + c + " → " + 
+                         (a <= d ? "да" : "нет") + " и " + (b <= c ? "да" : "нет") + " → " + 
+                         (fitsWithRotation ? "выполняется" : "не выполняется") + "</li>";
+            resultHTML += "</ul>";
+            resultHTML += "<p>Итог: " + (fitsWithoutRotation ? "первое" : "второе") + 
+                         " условие " + (fits ? "выполняется" : "не выполняется") + "</p>";
+            
+            document.getElementById('result').innerHTML = resultHTML;
+        }
+        
+        function clearForm() {
+            document.getElementById('sideA').value = '';
+            document.getElementById('sideB').value = '';
+            document.getElementById('sideC').value = '';
+            document.getElementById('sideD').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+        
+        // Добавляем обработчик события для кнопки Enter
+        document.getElementById('rectangleForm').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                checkRectangles();
+            }
+        });
+    </script>
+</body>
+</html>
