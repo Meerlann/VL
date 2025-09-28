@@ -12,8 +12,6 @@ css
             border-radius: 4px;
         }
         .hero-section {
-            background: linear-gradient(rgba(15, 25, 35, 0.8), rgba(15, 25, 35, 0.8)), 
-                       url("https://www.gazetevan.com/resimler/images_up/1737651250.jpg");
             background-size: cover;
             background-position: center;
             color: white;
@@ -32,7 +30,9 @@ css
             padding: 0;
             background-color: #f5f5f5;
         }
-        
+        .logo {
+            height: 40px;
+            margin-right: 10px;}
         /* Навигация по странице */
         .page-nav {
             background-color: white;
@@ -139,6 +139,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
