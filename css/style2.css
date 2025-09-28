@@ -5,9 +5,9 @@ css
             box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
     }
        .nav.navbar {
-     padding-left: 70px;
-    padding-right: 70px;
-    height:72px;
+     padding-left: 70px !important;
+    padding-right: 70px !important;
+    height:72px !important;
         }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -131,6 +131,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
