@@ -1,9 +1,9 @@
 css
  
-       nav.navbar {
-    background-color: red !important;
-    box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2) !important;
-        height:72px
+    .navbar {
+            background-color: red;
+            box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
+     height:62px
         }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -12,6 +12,13 @@ css
         .nav-link.active {
             background-color: #0f1923;
             border-radius: 4px;
+        }
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
 }
 
         body {
@@ -127,6 +134,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
