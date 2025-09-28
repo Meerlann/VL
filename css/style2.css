@@ -1,8 +1,8 @@
 css
  .navbar {
-   .navbar > .container {
-    max-width: 1200px;
-    margin: 0 auto;
+
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .navbar-brand, .nav-link {
@@ -133,6 +133,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
