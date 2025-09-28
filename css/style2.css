@@ -3,6 +3,11 @@ css
     .navbar {
             background-color: red;
             box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
+     position: relative;
+  min-height: 72px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
     }
        .nav.navbar {
      padding-left: 70px !important;
@@ -131,6 +136,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
