@@ -207,7 +207,9 @@
             
             <img src="images\мужики.webp" 
                  class="small-image"
-                 onclick="window.open('C:\мой сайт 1\valorant\images\мужики.webp', '_blank')"
+                width="60"
+                height="80"
+                style="object-fit: cover; border: 3px solid #fff; border-radius: 5px;"
                  alt="Игровой процесс">
             <p>Пример игрового процесса</p>
         </div>
@@ -314,22 +316,5 @@
             <a href="#top">Вернуться наверх</a>
         </div>
     </div>
-
-    <script>
-        // Простой скрипт для плавной прокрутки
-        document.querySelectorAll('.page-nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#top') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    document.querySelector(targetId).scrollIntoView({ 
-                        behavior: 'smooth' 
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
