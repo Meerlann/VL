@@ -135,6 +135,37 @@ css
             height: 50px;
             border-radius: 50%;
         }
+.image-container {
+            text-align: center;
+            margin: 20px;
+            padding: 15px;
+        }
+        
+        .preview-image {
+            max-width: 400px;
+            height: auto;
+            border: 3px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .preview-image:hover {
+            border-color: #007bff;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .caption {
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
         
         /* Ссылки */
         a {
@@ -149,6 +180,7 @@ css
          .logo {
             height: 40px;
             margin-right: 10px;
+
 
 
 
