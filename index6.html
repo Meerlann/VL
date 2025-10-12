@@ -37,6 +37,10 @@
         .issue-date { top: 190px; left: 145px; font-size: 14px; }
         /* Код подразделения - под надписью "Код подразделения" */
         .division-code { top: 190px; left: 400px; font-size: 14px; }
+        /* Личный код - под надписью "Личный код" */
+        .division-code { top: 190px; left: 400px; font-size: 14px; }
+        /* Личная подпись - под надписью "Личная подпись" */
+        .division-code { top: 190px; left: 400px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -80,6 +84,8 @@
             <div class="passport-data birthplace" id="passportBirthPlace">г. Москва</div>
             <div class="passport-data issue-date" id="passportIssueDate">15.03.2015</div>
             <div class="passport-data division-code" id="passportDivisionCode">770-001</div>
+            <div class="passport-data code" id="passportCode">Код</div>
+            <div class="passport-data signature" id="passportSignature">Меерлан</div>
         </div>
 
         <br>
@@ -117,6 +123,8 @@
                 document.getElementById('passportSecondName').textContent = transliterate(document.getElementById('passportSecondName').textContent);
                 document.getElementById('passportGender').textContent = transliterate(document.getElementById('passportGender').textContent);
                 document.getElementById('passportBirthPlace').textContent = transliterate(document.getElementById('passportBirthPlace').textContent);
+                document.getElementById('passportCode').textContent = transliterate(document.getElementById('passportCode').textContent);
+                document.getElementById('passportSignature').textContent = transliterate(document.getElementById('passportSignature').textContent);
             }
 
             function convertToCyrillic() {
@@ -130,6 +138,8 @@
                 document.getElementById('passportBirthPlace').textContent = 'г. Москва';
                 document.getElementById('passportIssueDate').textContent = '15.03.2015';
                 document.getElementById('passportDivisionCode').textContent = '770-001';
+                document.getElementById('passportCode').textContent = 'Код';
+                document.getElementById('passportSignature').textContent = 'Меерлан';
             }
         </script>
     <hr>
