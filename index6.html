@@ -3,187 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM и JS задания</title>
-    <style> *{
-    padding: 0px;
-    margin: 0px;
-}
-#main_fon{
-    height: 734px;
-    background-image: url(fon.jpg);
-    background-repeat: no-repeat;
-}
-#pass_title{
-    padding-top: 41px;
-    padding-left: 74px;
-}
-.poiret-one-regular {
-  font-family: "Poiret One", sans-serif;
-  font-weight: italic;
-  font-style: normal;
-  letter-spacing:  0.8em;
-  word-spacing: 0.25em;
-}
-@font-face {
-    font-family: 'Kreadon';
-    src: local('Kreadon.ttf'),
-          url (/Kreadon.ttf.ttf);
-}
-.vidanstr1{
-    font-family: 'Kreadon';
-    padding-top: 20px;
-    padding-left: 145px;
-}
-.vidanstr2{
-    font-family: 'Kreadon';
-    padding-top: 10px;
-    padding-left: 175px;
-    word-spacing: 0.65em;
-}
-.vidanstrdata{
-    font-family: 'Kreadon';
-    padding-top: 37px;
-    padding-left: 105px;
-    word-spacing: 0.65em;
-    float: left
-}
-.vidanstrcode{
-    font-family: 'Kreadon';
-    padding-top: 37px;
-    padding-left: 295px;
-    word-spacing: 0.65em;
-}
-.podpis{
-    padding-top: 30px;
-    padding-left: 55px;
-    float: left;
-}
-.podpis1{
-    padding-top: 50px;
-    padding-left: 115px;
-}
-.passfoto{
-    padding-top: 150px;
-    padding-left: 22px;
-    float:left;
-}
-.hfamilia{
-    padding-top: 110px;
-    padding-left: 250px ;
-}
-.hname{
-    padding-top: 37px;
-    padding-left: 250px;
-}
-.hfname{
-    padding-top: 10px;
-    padding-left: 250px;
-}
-.hpol{
-    padding-top: 10px;
-    padding-left: 40px;
-    float: left
-}
-.hborn{
-    padding-top: 10px;
-    padding-left: 340px;
-}
-.hpborn1{
-    padding-top: 6px;
-    padding-left: 250px;
-    word-spacing: 0.7em;
-}
-.hpborn2{
-    padding-top: 10px;
-    padding-left: 250px;
-}
-      </style>
-      <header class = "page-navigation">
-      <nav>
+    <style>
+        .passport-container {
+            position: relative;
+            width: 600px;
+            margin: 20px auto;
+        }
+        .passport-image {
+            width: 100%;
+            border: 2px solid #333;
+        }
+        .passport-data {
+            position: absolute;
+            font-family: Arial, sans-serif;
+            color: #000;
+            font-weight: bold;
+        }
+        /* Фамилия - под надписью "Фамилия" */
+        .lastname { top: 150px; left: 180px; font-size: 16px; }
+        /* Имя - под надписью "Имя" */
+        .firstname { top: 180px; left: 180px; font-size: 16px; }
+        /* Год рождения - в поле даты рождения */
+        .birthyear { top: 210px; left: 400px; font-size: 14px; }
+        /* Место рождения - под надписью "Место рождения" */
+        .birthplace { top: 240px; left: 180px; font-size: 14px; width: 300px; }
+        /* Дата выдачи - под надписью "Дата выдачи" */
+        .issue-date { top: 300px; left: 400px; font-size: 14px; }
+        /* Код подразделения - под надписью "Код подразделения" */
+        .division-code { top: 330px; left: 400px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav>
+        <h1>Навигация по заданиям</h1>
         <ul>
-         <li> <a href = '#passport'> Паспорт </a> </li>
-         <li> <a href = '#console'> DOM_JS. Считываем информацию из DOM </a> </li>
+            <li><a href="#page1">DOM_JS. Считываем информацию из DOM</a></li>
+            <li><a href="#page2">Изменяем кириллицу на латиницу по клику</a></li>
+            <li><a href="#page3">Решение алгоритмической задачи</a></li>
         </ul>
+    </nav>
 
-      </nav>
-    </header>
+    <hr>
 
-    <head>
-        <meta charset = "utf8">
-        <h3 class="course-title"> Изменяем кириллицу на латиницу по клику</h3>
-        <link rel = "stylesheet" href = "passport.css">
+    <!-- Страница 1 -->
+    <div id="page1">
+        <h2>DOM_JS. Считываем информацию из DOM</h2>
+        
+        <!-- Паспортные данные -->
+       
+    </div>
 
-    <link rel = "preconnect" href = "https://fonts.googleapis.com">
-    <link rel = "preconnect" href = "https://fonts.gstatic.com" cressorigin>
-    <link href = "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=PT+Sans+Caption:wght@400;700&family=Poiret+One&diplay=swap" rel="stylesheet">
-   <style>
+    <hr>
 
-   </style>
-    </head>
-    <body>
-
-        <h1 id = "passport" >Паспорт</h1>
-        <div id = "main_fon"> 
-            <h5 id = "pass_title" class = "poiret-one-regular">РОССИЙСКАЯ ФЕДЕРАЦИЯ</h5>
-            <div id = "page_top">
-                <p class = "vidanstr1"> ОТДЕЛОМ УФМС </p>
-                <p class = "vidanstr2">ПО САНКТ-ПЕТЕРБУРГУ</p>
-                <p class = "vidanstrdata">05.03.2024</p>
-                <p class = "vidanstrcode">730-876</p>
-                <img class = "podpis" src = "podpis1.png">
-                <img class = "podpis1" src = "podpis.png">
-            </div>
-
-            <div id = "page_bottom">
-                <img class = "passfoto" src = "fon.png">
-                <p class = "hfamilia">ЛЯХ</p>
-                <p class = "hname"> ДАРЬЯ </p>
-                <p class = "hfname">ВАЛЕРЬЕВНА</p>
-                <p class = "hpol">ЖЕН.</p>
-                <p class = "hborn">24.10.2003</p>
-                <p class = "hpborn1">ГОР. КАЛУГА</p>
-                <p class = "hpborn2">КАЛУЖСКОЙ ОБЛ.</p>
-            </div> 
+    <!-- Страница 2 -->
+    <div id="page2">
+        <h2>Изменяем кириллицу на латиницу по клику</h2>
+        
+        <!-- Картинка паспорта с данными -->
+        <div class="passport-container">
+            <img src="C:\мой сайт 1\valorant\images\fon.png" alt="Паспорт РФ" class="passport-image">
+            
+            <!-- Данные поверх картинки -->
+            <div class="passport-data lastname" id="passportLastName">Чистаховская</div>
+            <div class="passport-data firstname" id="passportFirstName">Анна</div>
+            <div class="passport-data birthyear" id="passportBirthYear">11.02.2005</div>
+            <div class="passport-data birthplace" id="passportBirthPlace">г. Москва</div>
+            <div class="passport-data issue-date" id="passportIssueDate">15.03.2015</div>
+            <div class="passport-data division-code" id="passportDivisionCode">770-001</div>
         </div>
 
-           <button type = "button" class = "button"> Я кнопка </button>
+        <br>
+        <button onclick="convertToLatin()">Преобразовать в латиницу</button>
+        <button onclick="convertToCyrillic()">Вернуть кириллицу</button>
 
+        <script>
+            function convertToLatin() {
+                // Транслитерация кириллицы в латиницу
+                const cyrToLat = {
+                    'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
+                    'Е': 'E', 'Ё': 'Yo', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
+                    'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
+                    'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T',
+                    'У': 'U', 'Ф': 'F', 'Х': 'Kh', 'Ц': 'Ts', 'Ч': 'Ch',
+                    'Ш': 'Sh', 'Щ': 'Shch', 'Ы': 'Y', 'Э': 'E', 'Ю': 'Yu',
+                    'Я': 'Ya',
+                    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+                    'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
+                    'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+                    'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+                    'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch',
+                    'ш': 'sh', 'щ': 'shch', 'ы': 'y', 'э': 'e', 'ю': 'yu',
+                    'я': 'ya'
+                };
 
-<h3 id = "console" class = "course-title"> DOM_JS. Считываем информацию из DOM </h3>
-        <img src = "passportconsole.jpg" height = "500px" >
-       
-document.addEventListener('DOMContentLoaded', function() {
-    
-});
-          let button = document.querySelector('.button');
+                function transliterate(text) {
+                    return text.split('').map(char => cyrToLat[char] || char).join('');
+                }
 
-   function transliterate(text) {
-            const translitMap = {
-                'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'YO',
-                'Ж': 'ZH', 'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M',
-                'Н': 'N', 'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U',
-                'Ф': 'F', 'Х': 'KH', 'Ц': 'TS', 'Ч': 'CH', 'Ш': 'SH', 'Щ': 'SHCH', 'Ъ': '',
-                'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'YU', 'Я': 'YA',
-                'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
-                'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
-                'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
-                'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ъ': '',
-                'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
-            };
-            return text.split('').map(char => translitMap[char] || char).join('');
-        }
+                // Преобразуем данные на картинке
+                document.getElementById('passportLastName').textContent = transliterate(document.getElementById('passportLastName').textContent);
+                document.getElementById('passportFirstName').textContent = transliterate(document.getElementById('passportFirstName').textContent);
+                document.getElementById('passportBirthPlace').textContent = transliterate(document.getElementById('passportBirthPlace').textContent);
+            }
 
-        function convertToLatin() {
-            const elements = document.querySelectorAll('.hfamilia, .hname, .hfname, .hborn, .hpborn1, .hpborn2');
-            
-            elements.forEach(element => {
-                element.innerText = transliterate(element.innerText);
-            });
-        }
+            function convertToCyrillic() {
+                // Возвращаем оригинальные значения на картинке
+                document.getElementById('passportLastName').textContent = 'Чистаховская';
+                document.getElementById('passportFirstName').textContent = 'Анна';
+                document.getElementById('passportBirthYear').textContent = '11.02.2005';
+                document.getElementById('passportBirthPlace').textContent = 'г. Москва';
+                document.getElementById('passportIssueDate').textContent = '15.03.2015';
+                document.getElementById('passportDivisionCode').textContent = '770-001';
+            }
+        </script>
+    <hr>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const button = document.querySelector('.button'); 
-            button.addEventListener('click', convertToLatin); 
-        });
-</script>
-    </body>
+ <!-- Страница 3 -->
+    <div id="page3">
+        <h2>Решение алгоритмической задачи</h2>
+         <a class="nav-link" href="index2.html" target="_blank" rel="noopener">Решение алгоритической задачи</a>
+    </div>
+
+</body>
 </html>
