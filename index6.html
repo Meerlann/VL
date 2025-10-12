@@ -24,7 +24,7 @@
         /* Имя - под надписью "Имя" */
         .firstname { top: 530px; left: 270px; font-size: 16px; }
          /* Отчество- под надписью "Отчество" */
-        .secondname { top: 550px; left: 270px; font-size: 16px; }
+        .secondname { top: 560px; left: 270px; font-size: 16px; }
         /* Год рождения - в поле даты рождения */
         .birthyear { top: 210px; left: 400px; font-size: 14px; }
         /* Место рождения - под надписью "Место рождения" */
@@ -107,6 +107,7 @@
                 // Преобразуем данные на картинке
                 document.getElementById('passportLastName').textContent = transliterate(document.getElementById('passportLastName').textContent);
                 document.getElementById('passportFirstName').textContent = transliterate(document.getElementById('passportFirstName').textContent);
+                document.getElementById('passportSecondName').textContent = transliterate(document.getElementById('passportSecondName').textContent);
                 document.getElementById('passportBirthPlace').textContent = transliterate(document.getElementById('passportBirthPlace').textContent);
             }
 
