@@ -19,6 +19,15 @@
             color: #000;
             font-weight: bold;
         }
+       .passport-photo {
+           width: 150px;        
+           height: 200px;       
+          object-fit: cover;   
+          border: 1px solid #ccc;
+          position: absolute;
+            top: 120px;          
+            left: 400px; 
+       }
          /* Выдан - под надписью "Выдан" */
         .got { top: 90px; left: 150px; font-size: 16px; }
         /* Фамилия - под надписью "Фамилия" */
@@ -73,6 +82,7 @@
         <!-- Картинка паспорта с данными -->
         <div class="passport-container">
             <img src="images/fon.png" alt="Паспорт РФ" class="passport-image">
+            <img src="" alt="Фото" class="passport-photo">
             
             <!-- Данные поверх картинки -->
             <div class="passport-data got" id="passportGot">Чехословакией</div>
