@@ -23,6 +23,8 @@
         .lastname { top: 465px; left: 255px; font-size: 16px; }
         /* Имя - под надписью "Имя" */
         .firstname { top: 530px; left: 270px; font-size: 16px; }
+         /* Отчество- под надписью "Отчество" */
+        .secondname { top: 550px; left: 270px; font-size: 16px; }
         /* Год рождения - в поле даты рождения */
         .birthyear { top: 210px; left: 400px; font-size: 14px; }
         /* Место рождения - под надписью "Место рождения" */
@@ -67,6 +69,7 @@
             <!-- Данные поверх картинки -->
             <div class="passport-data lastname" id="passportLastName">Чистаховская</div>
             <div class="passport-data firstname" id="passportFirstName">Анна</div>
+            <div class="passport-data secondname" id="passportSecondName">Сергеевна</div>
             <div class="passport-data birthyear" id="passportBirthYear">11.02.2005</div>
             <div class="passport-data birthplace" id="passportBirthPlace">г. Москва</div>
             <div class="passport-data issue-date" id="passportIssueDate">15.03.2015</div>
@@ -111,6 +114,7 @@
                 // Возвращаем оригинальные значения на картинке
                 document.getElementById('passportLastName').textContent = 'Чистаховская';
                 document.getElementById('passportFirstName').textContent = 'Анна';
+                document.getElementById('passportSecondName').textContent = 'Сергеевна';
                 document.getElementById('passportBirthYear').textContent = '11.02.2005';
                 document.getElementById('passportBirthPlace').textContent = 'г. Москва';
                 document.getElementById('passportIssueDate').textContent = '15.03.2015';
