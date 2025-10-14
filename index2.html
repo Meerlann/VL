@@ -16,31 +16,42 @@
     
     <div>
         <h2>Введите значения:</h2>
-        <form id="rectangleForm">
+        <!-- Измененная форма для отправки в Bing -->
+        <form id="rectangleForm" action="https://www.bing.com/search" method="GET" target="_blank">
+            <!-- Скрытое поле для поискового запроса -->
+            <input type="hidden" name="q" id="searchQuery" value="Проверка вложенности прямоугольников">
+            
             <p>
                 <label>Сторона a (внутренний прямоугольник): 
-                    <input type="number" id="sideA" step="0.01" min="0.01" required>
+                    <input type="number" id="sideA" name="side_a" step="0.01" min="0.01" required oninput="updateSearchQuery()">
                 </label>
             </p>
             <p>
                 <label>Сторона b (внутренний прямоугольник): 
-                    <input type="number" id="sideB" step="0.01" min="0.01" required>
+                    <input type="number" id="sideB" name="side_b" step="0.01" min="0.01" required oninput="updateSearchQuery()">
                 </label>
             </p>
             <p>
                 <label>Сторона c (внешний прямоугольник): 
-                    <input type="number" id="sideC" step="0.01" min="0.01" required>
+                    <input type="number" id="sideC" name="side_c" step="0.01" min="0.01" required oninput="updateSearchQuery()">
                 </label>
             </p>
             <p>
                 <label>Сторона d (внешний прямоугольник): 
-                    <input type="number" id="sideD" step="0.01" min="0.01" required>
+                    <input type="number" id="sideD" name="side_d" step="0.01" min="0.01" required oninput="updateSearchQuery()">
                 </label>
             </p>
+            
+            <!-- Блок предпросмотра поискового запроса -->
+            <div id="searchPreview" style="background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px;">
+                <strong>Поисковый запрос для Bing:</strong>
+                <div id="queryText">Проверка вложенности прямоугольников</div>
+            </div>
+            
             <p>
                 <button type="button" onclick="checkRectangles()">Проверить</button>
+                <button type="submit">Отправить в Bing</button>
                 <button type="button" onclick="clearForm()">Очистить</button>
-                <button type="button" onclick="sendToBing()">Отправить в Bing</button>
             </p>
         </form>
     </div>
@@ -58,8 +69,28 @@
     </div>
 
     <script>
-        let currentResult = null;
-
+        // Функция для обновления поискового запроса
+        function updateSearchQuery() {
+            const a = document.getElementById('sideA').value;
+            const b = document.getElementById('sideB').value;
+            const c = document.getElementById('sideC').value;
+            const d = document.getElementById('sideD').value;
+            
+            let searchQuery = "Проверка вложенности прямоугольников";
+            
+            if (a || b || c || d) {
+                searchQuery += " стороны: ";
+                if (a) searchQuery += "a=" + a + " ";
+                if (b) searchQuery += "b=" + b + " ";
+                if (c) searchQuery += "c=" + c + " ";
+                if (d) searchQuery += "d=" + d;
+            }
+            
+            // Обновляем скрытое поле и превью
+            document.getElementById('searchQuery').value = searchQuery;
+            document.getElementById('queryText').textContent = searchQuery;
+        }
+        
         function checkRectangles() {
             // Получаем значения из формы
             const a = parseFloat(document.getElementById('sideA').value);
@@ -71,7 +102,6 @@
             if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
                 document.getElementById('result').innerHTML = 
                     "<p style='color:red'>Ошибка: все стороны должны быть положительными числами!</p>";
-                currentResult = null;
                 return;
             }
             
@@ -79,18 +109,6 @@
             const fitsWithoutRotation = (a <= c) && (b <= d);
             const fitsWithRotation = (a <= d) && (b <= c);
             const fits = fitsWithoutRotation || fitsWithRotation;
-            
-            // Сохраняем результат для отправки
-            currentResult = {
-                a: a,
-                b: b,
-                c: c,
-                d: d,
-                fits: fits,
-                fitsWithoutRotation: fitsWithoutRotation,
-                fitsWithRotation: fitsWithRotation,
-                timestamp: new Date().toISOString()
-            };
             
             // Формируем результат
             let resultHTML = "<h2>Результат:</h2>";
@@ -123,10 +141,20 @@
             resultHTML += "<p>Итог: " + (fitsWithoutRotation ? "первое" : "второе") + 
                          " условие " + (fits ? "выполняется" : "не выполняется") + "</p>";
             
-            // Добавляем кнопку отправки в Bing
-            resultHTML += "<button type='button' onclick='sendToBing()' style='margin-top: 10px; padding: 8px 16px; background-color: #008373; color: white; border: none; border-radius: 4px; cursor: pointer;'>Отправить результат в Bing</button>";
-            
             document.getElementById('result').innerHTML = resultHTML;
+            
+            // Обновляем поисковый запрос с результатом
+            updateSearchQueryWithResult(fits, a, b, c, d);
+        }
+        
+        // Функция для обновления поискового запроса с результатом
+        function updateSearchQueryWithResult(fits, a, b, c, d) {
+            let resultQuery = "Проверка вложенности прямоугольников: ";
+            resultQuery += "a=" + a + " b=" + b + " c=" + c + " d=" + d + " ";
+            resultQuery += "результат: " + (fits ? "помещается" : "не помещается");
+            
+            document.getElementById('searchQuery').value = resultQuery;
+            document.getElementById('queryText').textContent = resultQuery;
         }
         
         function clearForm() {
@@ -135,81 +163,8 @@
             document.getElementById('sideC').value = '';
             document.getElementById('sideD').value = '';
             document.getElementById('result').innerHTML = '';
-            currentResult = null;
-        }
-        
-        function sendToBing() {
-            if (!currentResult) {
-                alert("Сначала выполните проверку прямоугольников!");
-                return;
-            }
-            
-            const resultDiv = document.getElementById('result');
-            const originalContent = resultDiv.innerHTML;
-            
-            // Показываем уведомление о отправке
-            resultDiv.innerHTML += "<p style='color:blue'>Отправка данных в Bing...</p>";
-            
-            // Создаем данные для отправки
-            const bingData = {
-                rectangleCheck: currentResult,
-                userAgent: navigator.userAgent,
-                language: navigator.language,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Отправка данных с помощью Bing Webmaster Tools API или через форму
-            // ВАЖНО: Для реальной отправки нужен API ключ и endpoint от Bing
-            const bingEndpoint = 'https://api.bing.com/webmaster/tools/submit'; // Пример endpoint
-            
-            // Демонстрационная отправка (замените на реальный endpoint)
-            fetch(bingEndpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // 'Authorization': 'Bearer YOUR_BING_API_KEY' // Добавьте API ключ если есть
-                },
-                body: JSON.stringify(bingData)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Ошибка сети: ' + response.status);
-                }
-                return response.text();
-            })
-            .then(data => {
-                resultDiv.innerHTML = originalContent;
-                resultDiv.innerHTML += "<p style='color:green'>Данные успешно отправлены в Bing!</p>";
-                console.log('Успех отправки в Bing:', data);
-            })
-            .catch((error) => {
-                resultDiv.innerHTML = originalContent;
-                
-                // Альтернативный метод отправки через поисковый запрос
-                const searchQuery = `Проверка прямоугольников: a=${currentResult.a}, b=${currentResult.b}, c=${currentResult.c}, d=${currentResult.d}, результат=${currentResult.fits ? 'помещается' : 'не помещается'}`;
-                const bingSearchUrl = `https://www.bing.com/search?q=${encodeURIComponent(searchQuery)}`;
-                
-                resultDiv.innerHTML += `
-                    <div style='margin-top: 10px; padding: 10px; background-color: #f0f0f0; border-radius: 5px;'>
-                        <p style='color:orange'>Сервер Bing временно недоступен. Альтернативные варианты:</p>
-                        <p>1. <a href="${bingSearchUrl}" target="_blank">Открыть поисковый запрос в Bing</a></p>
-                        <p>2. Данные для ручной отправки: ${JSON.stringify(currentResult)}</p>
-                        <p>3. <button onclick="copyToClipboard()" style='padding: 5px 10px;'>Скопировать данные</button></p>
-                    </div>
-                `;
-                console.error('Ошибка отправки в Bing:', error);
-            });
-        }
-        
-        function copyToClipboard() {
-            if (!currentResult) return;
-            
-            const textToCopy = JSON.stringify(currentResult, null, 2);
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert('Данные скопированы в буфер обмена!');
-            }).catch(err => {
-                console.error('Ошибка копирования: ', err);
-            });
+            document.getElementById('searchQuery').value = 'Проверка вложенности прямоугольников';
+            document.getElementById('queryText').textContent = 'Проверка вложенности прямоугольников';
         }
         
         // Добавляем обработчик события для кнопки Enter
@@ -218,6 +173,11 @@
                 event.preventDefault();
                 checkRectangles();
             }
+        });
+        
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSearchQuery();
         });
     </script>
 </body>
