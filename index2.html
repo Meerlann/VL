@@ -16,10 +16,10 @@
     
     <div>
         <h2>Введите значения:</h2>
-        <!-- Измененная форма для отправки в Bing -->
+       
         <form id="rectangleForm" action="https://www.bing.com/search" method="GET" target="_blank">
              <p><input type="hidden"  name="q" value="search"></p>
-            <!-- Скрытое поле для поискового запроса -->
+           
             <input type="hidden" name="q" id="searchQuery" value="Проверка вложенности прямоугольников">
             
             <p>
@@ -65,7 +65,7 @@
     </div>
 
     <script>
-        // Функция для обновления поискового запроса
+        // обновление поискового запроса
         function updateSearchQuery() {
             const a = document.getElementById('sideA').value;
             const b = document.getElementById('sideB').value;
@@ -82,31 +82,29 @@
                 if (d) searchQuery += "d=" + d;
             }
             
-            // Обновляем скрытое поле и превью
+           
             document.getElementById('searchQuery').value = searchQuery;
             document.getElementById('queryText').textContent = searchQuery;
         }
         
         function checkRectangles() {
-            // Получаем значения из формы
+            // значения из формы
             const a = parseFloat(document.getElementById('sideA').value);
             const b = parseFloat(document.getElementById('sideB').value);
             const c = parseFloat(document.getElementById('sideC').value);
             const d = parseFloat(document.getElementById('sideD').value);
             
-            // Проверяем, что все значения положительные
             if (a <= 0 || b <= 0 || c <= 0 || d <= 0) {
                 document.getElementById('result').innerHTML = 
                     "<p style='color:red'>Ошибка: все стороны должны быть положительными числами!</p>";
                 return;
             }
             
-            // Проверяем условие вложенности
             const fitsWithoutRotation = (a <= c) && (b <= d);
             const fitsWithRotation = (a <= d) && (b <= c);
             const fits = fitsWithoutRotation || fitsWithRotation;
             
-            // Формируем результат
+       
             let resultHTML = "<h2>Результат:</h2>";
             
             if (fits) {
@@ -123,7 +121,6 @@
                              " НЕ МОЖЕТ поместиться внутри прямоугольника со сторонами " + c + " и " + d + ".</p>";
             }
             
-            // Добавляем подробное объяснение
             resultHTML += "<h3>Подробное объяснение:</h3>";
             resultHTML += "<p>Проверяемые условия:</p>";
             resultHTML += "<ul>";
@@ -139,7 +136,6 @@
             
             document.getElementById('result').innerHTML = resultHTML;
             
-            // Обновляем поисковый запрос с результатом
             updateSearchQueryWithResult(fits, a, b, c, d);
         }
         
@@ -163,7 +159,7 @@
             document.getElementById('queryText').textContent = 'Проверка вложенности прямоугольников';
         }
         
-        // Добавляем обработчик события для кнопки Enter
+        // обработчик события для кнопки Enter
         document.getElementById('rectangleForm').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
@@ -171,7 +167,6 @@
             }
         });
         
-        // Инициализация при загрузке
         document.addEventListener('DOMContentLoaded', function() {
             updateSearchQuery();
         });
