@@ -26,7 +26,6 @@
             top: 505px;          
             left: 40px; 
        }
-        /* Стиль для большой картинки в первом блоке */
         .large-image-container {
             width: 100%;
             max-width: 1200px;
@@ -79,7 +78,6 @@
 </head>
 <body>
     <form action="https://www.bing.com/search" name="q" target="_blank" method="GET">
-    <!-- Навигация -->
     <nav>
         <h1>Навигация по заданиям</h1>
         <ul>
@@ -95,7 +93,6 @@
     <div id="page1">
         <h2>DOM_JS. Считываем информацию из DOM</h2>
         <img src="images/2025-10-12_17-04-30.png" alt="Информация" class="large-image">
-        <!-- Паспортные данные -->
        
     </div>
 
@@ -105,12 +102,12 @@
     <div id="page2">
         <h2>Изменяем кириллицу на латиницу по клику</h2>
         
-        <!-- Картинка паспорта с данными -->
+     
         <div class="passport-container">
             <img src="images/fon.png" alt="Паспорт РФ" class="passport-image">
             <img src="images/photo_2025-07-12_15-01-14.jpg" alt="Фото" class="passport-photo">
             
-            <!-- Данные поверх картинки -->
+            
             <div class="passport-data got" id="passportGot">Чехословакией</div>
             <div class="passport-data lastname" id="passportLastName">Чистаховская</div>
             <div class="passport-data firstname" id="passportFirstName">Анна</div>
@@ -130,7 +127,6 @@
 
         <script>
             function convertToLatin() {
-                // Транслитерация кириллицы в латиницу
                 const cyrToLat = {
                     'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
                     'Е': 'E', 'Ё': 'Yo', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
@@ -152,7 +148,7 @@
                     return text.split('').map(char => cyrToLat[char] || char).join('');
                 }
 
-                // Преобразуем данные на картинке
+                
                 document.getElementById('passportGot').textContent = transliterate(document.getElementById('passportGot').textContent);
                 document.getElementById('passportLastName').textContent = transliterate(document.getElementById('passportLastName').textContent);
                 document.getElementById('passportFirstName').textContent = transliterate(document.getElementById('passportFirstName').textContent);
@@ -164,7 +160,7 @@
             }
 
             function convertToCyrillic() {
-                // Возвращаем оригинальные значения на картинке
+             
                 document.getElementById('passportGot').textContent = 'Чехословакией';
                 document.getElementById('passportLastName').textContent = 'Чистаховская';
                 document.getElementById('passportFirstName').textContent = 'Анна';
